@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Email & Password Checker (Dark)</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="card" role="main" aria-labelledby="formTitle">
+    <div class="header">
+      <div class="logo">EP</div>
+      <div>
+        <h1 id="formTitle">Email & Password Checker</h1>
+        <p class="lead">Paste an email and password to test validation rules (JS hooks ready).</p>
+      </div>
+    </div>
+
+    <form id="checkerForm" novalidate>
+      <!-- EMAIL -->
+      <div class="row">
+        <label for="email">Email
+          <span id="emailHint" class="helper">example@domain.com</span>
+        </label>
+        <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com"
+               aria-describedby="emailHint emailFeedback" required />
+        <div id="emailFeedback" role="status" aria-live="polite" class="helper"></div>
+      </div>
+
+      <!-- PASSWORD -->
+      <div class="row">
+        <label for="password">Password
+          <span class="helper">min 8 chars, upper, lower, number, special</span>
+        </label>
+        <div style="display:flex; gap:8px; align-items:center">
+          <input id="password" name="password" type="password" autocomplete="current-password" placeholder="Enter password"
+                 aria-describedby="pwRules pwFeedback" required />
+          <button type="button" id="togglePw" class="ghost" aria-pressed="false" title="Show / hide password">Show</button>
+        </div>
+
+        <div id="pwRules" class="pw-rules" aria-hidden="false">
+          <div class="pw-rule" id="rule-length">≥ 8 chars</div>
+          <div class="pw-rule" id="rule-lower">lowercase</div>
+          <div class="pw-rule" id="rule-upper">UPPERCASE</div>
+          <div class="pw-rule" id="rule-number">number</div>
+          <div class="pw-rule" id="rule-special">special char</div>
+        </div>
+
+        <div id="pwFeedback" role="status" aria-live="polite" class="helper"></div>
+      </div>
+
+      <!-- ACTIONS -->
+      <div class="actions">
+        <button id="validateBtn" type="submit">Validate</button>
+        <button id="clearBtn" type="button" class="ghost">Clear</button>
+      </div>
+
+      <p class="foot" id="resultArea" aria-live="polite" style="margin-top:12px"></p>
+    </form>
+  </main>
+
+
+  <script src="script.js"></script>
+</body>
+</html>
