@@ -1,0 +1,145 @@
+    /* ====== Dark Theme Base ====== */
+    :root{
+      --bg: #0f1115;
+      --panel: #151820;
+      --muted: #9aa3b2;
+      --primary: #7dd3fc; /* light cyan */
+      --accent: #8b5cf6;  /* violet */
+      --danger: #ff6b6b;
+      --glass: rgba(255,255,255,0.03);
+      --radius: 12px;
+      --shadow: 0 6px 18px rgba(2,6,23,0.6);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:
+        radial-gradient(1200px 600px at 10% 10%, rgba(139,92,246,0.08), transparent 8%),
+        radial-gradient(900px 500px at 90% 90%, rgba(125,211,252,0.05), transparent 10%),
+        var(--bg);
+      color:#e6eef6;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:32px;
+    }
+
+    /* ====== Card ====== */
+    .card{
+      width:100%;
+      max-width:520px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:var(--radius);
+      padding:28px;
+      box-shadow:var(--shadow);
+      border:1px solid rgba(255,255,255,0.03);
+    }
+
+    .header{
+      display:flex;
+      gap:16px;
+      align-items:center;
+      margin-bottom:18px;
+    }
+    .logo{
+      width:48px;
+      height:48px;
+      display:grid;
+      place-items:center;
+      border-radius:10px;
+      background:linear-gradient(135deg,var(--accent),var(--primary));
+      box-shadow:0 6px 18px rgba(0,0,0,0.6), inset 0 -6px 14px rgba(255,255,255,0.03);
+      font-weight:700;
+      color:#061225;
+      font-size:18px;
+    }
+    h1{font-size:18px; margin:0}
+    p.lead{margin:0; color:var(--muted); font-size:13px}
+
+    /* ====== Form ====== */
+    form{margin-top:18px}
+    .row{display:flex; flex-direction:column; gap:8px; margin-bottom:14px}
+    label{
+      font-size:13px;
+      color:var(--muted);
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+    input[type="email"],
+    input[type="password"],
+    input[type="text"]{
+      width:100%;
+      padding:12px 14px;
+      background:var(--glass);
+      border:1px solid rgba(255,255,255,0.04);
+      border-radius:10px;
+      color:inherit;
+      outline:none;
+      font-size:14px;
+      transition:box-shadow .12s, border-color .12s, transform .06s;
+    }
+    input:focus{
+      box-shadow:0 6px 20px rgba(125,211,252,0.06);
+      border-color: rgba(125,211,252,0.6);
+      transform:translateY(-1px);
+    }
+
+    /* small helper text and error */
+    .helper{font-size:12px; color:var(--muted)}
+    .error{font-size:12px; color:var(--danger)}
+    .valid{font-size:12px; color:var(--primary)}
+
+    /* password rules list */
+    .pw-rules{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      margin-top:8px;
+      font-size:12px;
+      color:var(--muted);
+    }
+    .pw-rule{
+      background:rgba(255,255,255,0.02);
+      padding:6px 8px;
+      border-radius:8px;
+    }
+
+    /* actions */
+    .actions{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      margin-top:6px;
+    }
+    button{
+      background:linear-gradient(90deg,var(--primary),var(--accent));
+      color:#04121a;
+      border:0;
+      padding:10px 14px;
+      border-radius:10px;
+      font-weight:600;
+      cursor:pointer;
+      box-shadow:0 6px 18px rgba(11,22,30,0.45);
+    }
+    button.ghost{
+      background:transparent;
+      border:1px solid rgba(255,255,255,0.04);
+      color:var(--muted);
+      font-weight:600;
+    }
+
+    /* small footnote */
+    .foot{margin-top:14px; font-size:12px; color:var(--muted)}
+
+    /* responsive */
+    @media (max-width:420px){
+      .card{padding:18px}
+      .header{gap:10px}
+      .logo{width:42px;height:42px;font-size:16px}
+    }
