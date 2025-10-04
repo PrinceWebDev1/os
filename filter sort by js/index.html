@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Search & Filter UI — Dark Theme</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app" role="application" aria-labelledby="appTitle">
+
+        <!-- LEFT: FILTERS PANEL -->
+        <aside class="panel" aria-label="Filter panel">
+            <header>
+                <h1 id="appTitle">Find items</h1>
+                <p>Search, filter and sort — JavaScript will do the heavy lifting.</p>
+            </header>
+
+            <div class="search" role="search">
+                <input id="searchInput" type="search" placeholder="Search by name, tag or description"
+                    aria-label="Search items"  autocomplete="off" />
+                <button id="clearSearch" class="btn" aria-label="Clear search">Clear</button>
+            </div>
+
+            <div class="controls">
+                <div class="control-group" aria-labelledby="catHeading">
+                    <h3 id="catHeading">Category</h3>
+                    <div class="checkbox-list">
+                        <label class="checkbox"><input type="checkbox" value="electronics" data-filter="category" />
+                            <span class="small">Electronics</span></label>
+                        <label class="checkbox"><input type="checkbox" value="apparel" data-filter="category" /> <span
+                                class="small">Apparel</span></label>
+                        <label class="checkbox"><input type="checkbox" value="books" data-filter="category" /> <span
+                                class="small">Books</span></label>
+                    </div>
+                </div>
+
+                <div class="control-group" aria-labelledby="priceHeading">
+                    <h3 id="priceHeading">Price</h3>
+                    <div class="select">
+                        <select id="priceSelect" aria-label="Price range">
+                            <option value="0-999">Any</option>
+                            <option value="0-25">0 - $25</option>
+                            <option value="25-100">$25 — $100</option>
+                            <option value="100-9999">$100+</option>
+                        </select>
+                        <span class="small muted">or use JS slider</span>
+                    </div>
+                </div>
+
+                <div class="control-group" aria-labelledby="sortHeading">
+                    <h3 id="sortHeading">Sort</h3>
+                    <div class="select">
+                        <select id="sortSelect" aria-label="Sort results">
+                            <option value="relevance">Relevance</option>
+                            <option value="price-asc">Price: low to high</option>
+                            <option value="price-desc">Price: high to low</option>
+                            <option value="name-asc">Name A → Z</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <button id="applyFilters" class="btn" aria-label="Apply filters">Apply filters</button>
+                    <button id="resetFilters" class="btn" aria-label="Reset filters">Reset filters</button>
+                </div>
+            </div>
+        </aside>
+
+        <!-- RIGHT: RESULTS -->
+        <main class="results" aria-live="polite">
+            <div class="toolbar">
+                <div class="summary" id="summary">Showing <strong id="count">12</strong> items</div>
+                <div class="actions">
+                    <button id="toggleView" class="btn" aria-pressed="false">Toggle view</button>
+                </div>
+            </div>
+
+            <section id="resultsGrid" class="grid" aria-label="Search results">
+
+            </section>
+
+            <div id="emptyState" class="empty" hidden>
+                No results found. Try adjusting filters or clearing your search.
+            </div>
+        </main>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
