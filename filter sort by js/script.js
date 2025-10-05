@@ -156,7 +156,7 @@ document.querySelector('#applyFilters').addEventListener('click', function () {
 
         let itemName = card.name.toLowerCase();
         let itemTag = card.tags
-        if (itemName.startsWith(inpVal) || itemTag[0].startsWith(inpVal) || itemTag[1].startsWith(inpVal)) {
+        if (itemName.startsWith(inpVal) || itemTag[0].startsWith(inpVal) || itemTag[1].startsWith(inpVal) || !inpVal) {
             let tf = false;
             filteredCheckbox.forEach(function (elem) {
                 if (elem.value.toLowerCase() === card.category) tf = true;
@@ -177,6 +177,20 @@ document.querySelector('#applyFilters').addEventListener('click', function () {
     createCard(filteredArray);
 })
 
+document.querySelector('#resetFilters').addEventListener('click', function () {
+    inp.value = '';
+    checkbox.forEach(function (element) {
+        element.checked = false;
+    });
+    document.querySelector('#sortSelect').value = "relevance";
+    document.querySelector('#priceSelect').value = "0-999";
+    document.querySelector('#count').textContent = cards.length
+
+    document.querySelector('#resultsGrid').innerHTML = "";
+    createCard(cards);
+})
+
 
 createCard(cards);
+
 
