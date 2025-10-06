@@ -194,3 +194,4 @@ document.querySelector('#resetFilters').addEventListener('click', function () {
 createCard(cards);
 
 
+// thinking how it would go with git
